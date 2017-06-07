@@ -3,9 +3,6 @@ title: Word representation in NLP
 date: 2017-06-05 21:22:29
 tag:
 - NLP
-auto_excerpt:
-  enable: true
-  length: 150
 ---
 
 ## One-hot Representation
