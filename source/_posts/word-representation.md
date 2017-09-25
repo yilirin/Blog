@@ -3,6 +3,9 @@ title: Word representation in NLP
 date: 2017-06-05 21:22:29
 tag:
 - NLP
+auto_excerpt:
+  enable: true
+  length: 150
 ---
 
 ## One-hot Representation
@@ -13,7 +16,7 @@ tag:
 
 ## SVD based method ［ ］
 
-## Probabilistic Language Model: $P(w_t|w_{1:t-1})$ 
+## Probabilistic Language Model: $P(w_t|w_{1:t-1})$
 
 1.  问题：
     Given a sequence of letters, what is the likelihood of the next letter?
