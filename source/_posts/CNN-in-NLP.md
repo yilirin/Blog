@@ -14,7 +14,9 @@ auto_excerpt:
 ## Using general Embedding
 
 [1](Kim, Y. 2014)这篇是Yoon Kim在2014年(EMNLP2014)的文章, 应该是比较经典的做法. 其框架如下
-![kim](../images/kim2014.png)
+
+![Kim2014](CNN-in-NLP/kim2014.png)
+
 输入矩阵的每行是对应词的embedding, 用一个宽度为embedding维度的filter来做卷积, 这也是文本和图像做卷积不同的地方, 也就是文本只关注时间序列上的卷积,不关注单词特征各维度的关系. 文章中选用了高分别为3,4,5三种filter, 每个filter要做100个feature maps, 也就是经过卷积层后得到300个特征向量, 对这些向量分别做max-over-time pooling就得到一个300*1的向量, 然后将这个向量传入全连接层经过softmax就能得到分类的概率结果.
 在训练上本文使用了SGD, 并对倒数第二层做了dropout.
 这个模型非常的简洁, 直观, 没有太多的trick, 很有借鉴意义.
@@ -22,7 +24,9 @@ auto_excerpt:
 此外作者还研究了所谓non-static representation. 也就是对于embedding不只是作为输入, 而是作为可以训练的参数. 这样对于不同的任务, embedding会做出相应的调整, 事实上static和non-static的表示是作为不同channel输入的, 最终的结果显示non-static representation会带来一点性能的提升.
 最后作者在和别人的工作[2](Kalchbrenner et al., 2014)对比后, 认为自己的结果比别人差不多的cnn更好的原因是用了更多不同大小的filter和更多的feature map
 在Kalchbrenner的论文[2]里提出的Dynamic Convolutional Neural Network (DCNN), 使用了两层卷积, 并且采用了动态的k-max pooling.  
-![Kalchbrenner2014](../images/Kalchbrenner2014.png)
+
+![Kalchbrenner2014](CNN-in-NLP/Kalchbrenner2014.png)
+
 其实这个框架和Kim的框架在大多数任务上都互有胜负, 只是模型不够简洁. 而且filter size只用了一种.
 
 ---
